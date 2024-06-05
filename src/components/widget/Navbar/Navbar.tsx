@@ -1,3 +1,5 @@
+import { ModeToggle } from "@/components/ModeToggle";
+import { Button } from "@/components/ui/button"
 
 
 const Navbar = () => {
@@ -14,9 +16,13 @@ const Navbar = () => {
         <img src={logo} alt="blog logo" />
       </div>
 
-      <button>
+      <div>
+        <ModeToggle/>
+      </div>
+
+      <Button>
         here
-      </button>
+      </Button>
     </nav>
   )
 }
