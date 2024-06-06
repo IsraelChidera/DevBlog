@@ -1,6 +1,6 @@
 import { ModeToggle } from "@/components/ModeToggle";
 import { Button } from "@/components/ui/button"
-
+import Container from '../Container';
 
 const Navbar = () => {
 
@@ -9,20 +9,22 @@ const Navbar = () => {
 
   console.log("title", title);
   console.log("logo", logo);
-  
+
   return (
-    <nav className='flex items-center justify-between'>
-      <div>
-        <img src={logo} alt="blog logo" />
-      </div>
+    <nav className='h-[10vh] py-3 '>
+      <Container className="flex justify-between items-center">
+        <div>
+          <img src={logo} alt="blog logo" />
+        </div>
 
-      <div>
-        <ModeToggle/>
-      </div>
+        <div className="flex items-center space-x-2">
+          <ModeToggle />
 
-      <Button>
-        here
-      </Button>
+          <Button variant="default">
+            Blog
+          </Button>
+        </div>
+      </Container>
     </nav>
   )
 }
