@@ -40,6 +40,7 @@ const BlogCategory = () => {
             </TabsList>
           </div>
 
+          {/* featured post section  */}
           <div className="mt-16 mb-20 lg:grid grid-cols-2">
             <div className="border border-primary">
               <img src="/featured-img.png" alt="blog post image" />
@@ -64,6 +65,8 @@ const BlogCategory = () => {
                 </p>
               </div>
 
+              <a href="/posts/post1">Post 1</a>
+
               <Button className="w-fit space-x-2">
                 <span>Read more</span> {" "}
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16" fill="orange">
@@ -74,7 +77,7 @@ const BlogCategory = () => {
           </div>
 
           <TabsContent value="account">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3">
               <BlogTemplates />
             </div>
           </TabsContent>

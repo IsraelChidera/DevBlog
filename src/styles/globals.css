@@ -79,3 +79,13 @@
 .bg-img {
   background: url('/public/bg-blog-header.png') no-repeat center center/cover;
 }
+
+.footer-css {
+  display: flex;
+}
+
+@media screen and (max-width: 764px) {
+  .footer-css {
+    display: block;
+  }
+}

@@ -13,16 +13,18 @@ const Navbar = () => {
   return (
     <nav className='h-[10vh] py-3 '>
       <Container className="flex justify-between items-center">
-        <div>
+        <a href="/">
           <img src={logo} alt="blog logo" />
-        </div>
+        </a>
 
         <div className="flex items-center space-x-2">
           <ModeToggle />
 
-          <Button variant="default">
-            Blog
-          </Button>
+          <a href="/blog">
+            <Button variant="default">
+              Blog
+            </Button>
+          </a>
         </div>
       </Container>
     </nav>

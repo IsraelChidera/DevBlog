@@ -1,0 +1,25 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Container from "../components/widget/Container";
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={frontmatter.title}>
+    <div class="mt-40">
+        <Container className="py-40">
+            <p>Written by {frontmatter.author}</p>
+            <div class="tags">
+                {
+                    frontmatter.tags.map((tag) => (
+                        <p class="tag">
+                            <a href={`/tags/${tag}`}>{tag}</a>
+                        </p>
+                    ))
+                }
+            </div>
+            
+            <slot />
+        </Container>
+    </div>
+</BaseLayout>

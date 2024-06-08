@@ -13,7 +13,7 @@ const BlogTemplates = () => {
     return (
         <section>
             <Card className="space-y-2">
-                <img src="/blog-post-1.png" alt="blog post img" />
+                <img src="/blog-post-1.png" className="w-full" alt="blog post img" />
                 <div>
                     <CardHeader>
                         <CardDescription className="flex items-center space-x-2">
