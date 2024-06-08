@@ -17,8 +17,8 @@ const BlogTemplates = () => {
                 <div>
                     <CardHeader>
                         <CardDescription className="flex items-center space-x-2">
-                            <Badge className="text-xs">Secondary</Badge>
-                            <span className="text-xs"> 5 min read </span>
+                            <Badge className="text-xs w-fit">Secondary</Badge>
+                            <span className="text-xs block"> 5 min read </span>
                         </CardDescription>
                         <CardTitle className="mt-2 text-2xl">Blog post title</CardTitle>
                     </CardHeader>

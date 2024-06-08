@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Container from "../components/widget/Container";
+import BlogTemplates from "@/components/widget/BlogTemplates";
 
 const allPosts = await Astro.glob('../pages/posts/*.md');
 const blogTitle = "What is your blog ";
@@ -9,22 +10,32 @@ const blogDescription = `What should be your blog description for instance
     product updates, partnership announcements, user stories, and more.`;
 ---
 
-<BaseLayout title="Welcome to Astro.">
+<BaseLayout title="Blog">
     <main>
         <header>
             <Container className="py-3 ">
-                <div class="w-[521px] text-center">
-                    <h1 class="text-2xl lg:text-3xl font-bold text-primary">
-                        {blogTitle} Blog
-                    </h1>
-
-                    <p class="mt-2 text-primary lg:text-lg opacity-60">
-                        Home | blog
-                    </p>
+                <div class="flex justify-center items-center">
+                    <div class="w-[521px] text-center">
+                        <h1 class="text-2xl lg:text-3xl font-bold text-primary">
+                            {blogTitle} Blog
+                        </h1>
+    
+                        <p class="mt-2 text-primary lg:text-lg opacity-60">
+                            Home | blog
+                        </p>
+                    </div>
                 </div>
 
                 <div class="my-6">
-                    {allPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
+                    <!-- {allPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)} -->
+                   
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3">
+                        {
+                            allPosts.map((post) => (
+                                <BlogTemplates />
+                            ))
+                         }
+                    </div>
                 </div>
             </Container>
         </header>
