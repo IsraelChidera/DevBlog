@@ -6,20 +6,26 @@ const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout title={frontmatter.title}>
-    <div>
-        <Container className="py-20">
-            <p>Written by {frontmatter.author}</p>
-            <div class="tags">
-                {
-                    frontmatter.tags.map((tag) => (
-                        <p class="tag">
-                            <a href={`/tags/${tag}`}>{tag}</a>
-                        </p>
-                    ))
-                }
-            </div>
+    <div class="flex justify-center items-center">
+        <div class="py-10 flex justify-center items-center">
+            <div>
+                <p>Written by {frontmatter.author}</p>
+                <div class="tags">
+                    {
+                        frontmatter.tags.map((tag) => (
+                            <p class="tag">
+                                <a href={`/tags/${tag}`}>{tag}</a>
+                            </p>
+                        ))
+                    }
+                </div>
 
-            <slot />
-        </Container>
+                <div
+                    class="prose-headings:text-primary prose-a:underline prose-a:text-primary text-primary prose lg:prose-xl"
+                >
+                    <slot />
+                </div>
+            </div>
+        </div>
     </div>
 </BaseLayout>
