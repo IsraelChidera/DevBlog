@@ -7,8 +7,8 @@ const Footer = () => {
     const getYear = new Date().getFullYear();
     
     return (
-        <footer className="pb-4 border border-t-muted">
-            <Container className="pb-2">
+        <footer className="py-3 border border-t-muted">
+            <Container>
                 <div                
                     className="block md:flex md:space-x-4 items-center justify-between  w-full"
                 >
