@@ -1,15 +1,5 @@
 import { Button } from "@/components/ui/button"
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import {
   Tabs,
   TabsContent,
   TabsList,
@@ -77,7 +67,10 @@ const BlogCategory = () => {
           </div>
 
           <TabsContent value="account">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-x-4 gap-x-0 sm:gap-y-10 gap-y-10">
+              <BlogTemplates />
+              <BlogTemplates />
+              <BlogTemplates />
               <BlogTemplates />
             </div>
           </TabsContent>

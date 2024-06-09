@@ -41,12 +41,14 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<div>
+		<div class="relative max-h-screen">
 			<Navbar />
 			<div class="py-10">
                 <slot />
             </div>
-			<Footer />
+			<div class="z-50 bg-background sticky w-full bottom-0 left-0">
+                <Footer />
+            </div>
 		</div>
 	</body>
 </html>

@@ -12,7 +12,7 @@ const blogDescription = `What should be your blog description for instance
 
 <BaseLayout title="Blog">
     <main>
-        <header>
+        <header class="bg-img">
             <Container className="py-3 ">
                 <div class="flex justify-center items-center">
                     <div class="w-[521px] text-center">
@@ -20,8 +20,8 @@ const blogDescription = `What should be your blog description for instance
                             {blogTitle} Blog
                         </h1>
     
-                        <p class="mt-2 text-primary lg:text-lg opacity-60">
-                            Home | blog
+                        <p class="mt-2 text-primary lg:text-lg ">
+                            <span class="opacity-60">Home</span> | <span class="opacity-100">Blog</span>
                         </p>
                     </div>
                 </div>
@@ -29,7 +29,7 @@ const blogDescription = `What should be your blog description for instance
                 <div class="my-6">
                     <!-- {allPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)} -->
                    
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3">
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-x-4 gap-x-0 sm:gap-y-10 gap-y-10">
                         {
                             allPosts.map((post) => (
                                 <BlogTemplates />

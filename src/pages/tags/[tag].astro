@@ -1,32 +1,103 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Container from "../../components/widget/Container";
+import BlogTemplates from "@/components/widget/BlogTemplates";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export async function getStaticPaths() {
-  const allPosts = await Astro.glob('../posts/*.md');
+    const allPosts = await Astro.glob("../posts/*.md");
 
-  const uniqueTags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
+    const uniqueTags = [
+        ...new Set(allPosts.map((post) => post.frontmatter.tags).flat()),
+    ];
 
-  return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter((post) => post.frontmatter.tags.includes(tag));
-    return {
-      params: { tag },
-      props: { posts: filteredPosts },
-    };
-  });
+    return uniqueTags.map((tag) => {
+        const filteredPosts = allPosts.filter((post) =>
+            post.frontmatter.tags.includes(tag),
+        );
+        return {
+            params: { tag },
+            props: { posts: filteredPosts },
+        };
+    });
 }
 
 const { tag } = Astro.params;
 const { posts } = Astro.props;
----
-<BaseLayout title={tag}>
-  <p>Posts tagged with {tag}</p>
-  <ul>
-   { posts.map((post) => (
-                <li>
-                    <a href={post.url}>{post.frontmatter.title}</a>
-                </li>
-            ))}
 
-            
-  </ul>
+const uniqueTags = [
+    ...new Set(posts.map((post) => post.frontmatter.tags).flat()),
+];
+
+const blogTitle = "John Doe's";
+const shortDescription = `Learn about cryptocurrency, NFTs, and blockchain, partnership announcements, user stories, and more.`;
+---
+
+<BaseLayout title={tag}>
+    <Container className="py-3 bg-img ">
+        <div class="flex justify-center items-center">
+            <div class="w-[521px] text-center">
+                <p class="mt-2 text-primary text-sm lg:text-lg">
+                    <span class="opacity-60">Home | Blog</span> | <span
+                        class="opacity-100">Tags</span
+                    >
+                </p>
+
+                <h1 class="text-2xl lg:text-3xl font-bold text-primary">
+                    {blogTitle} Blog
+                </h1>
+
+                <p class="text-sm opacity-80 md:text-base lg:text-lg">
+                    {shortDescription}
+                </p>
+            </div>
+        </div>
+    </Container>
+
+    <div>
+        <div class="flex flex-wrap gap-4 items-center justify-center">
+            {uniqueTags.map((item) => <a href={`/tags/${tag}`}>{item}</a>)}
+        </div>
+
+        <!-- <p>All post with tag - {tag}</p> -->
+        <div class="grid grid-cols-6 gap-x-2 mt-20 md:px-10 px-3">
+            <div
+                class="col-span-4 grid sm:grid-cols-2 lg:grid-cols-2 sm:gap-x-4 gap-x-0 sm:gap-y-10 gap-y-10"
+            >
+                {
+                    posts.map((post) => (
+                        <div>
+                            <BlogTemplates />
+                            {/* <a href={post.url}>{post.frontmatter.title}</a> */}
+                        </div>
+                    ))
+                }
+            </div>
+
+            <div class="col-span-2">
+                <Card className="">
+                    <CardHeader>
+                        <CardTitle>All Tags</CardTitle>                        
+                    </CardHeader>
+                    <CardContent>
+                        {
+                            uniqueTags.map((item) => (
+                                <a class="block space-y-4 hover:underline w-fit transition-all ease-linear hover:underline-offset-4" href={`/tags/${tag}`}>
+                                    {item}
+                                </a>
+                            ))
+                        }
+                    </CardContent>                   
+                </Card>
+            </div>
+        </div>
+    </div>
 </BaseLayout>

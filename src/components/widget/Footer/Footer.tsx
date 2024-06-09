@@ -7,12 +7,12 @@ const Footer = () => {
     const getYear = new Date().getFullYear();
     
     return (
-        <footer className="pb-4 border border-t-primary">
+        <footer className="pb-4 border border-t-muted">
             <Container className="pb-2">
                 <div                
-                    className="footer-css flex md:space-x-4 items-center justify-between border-t-red-100 w-full"
+                    className="block md:flex md:space-x-4 items-center justify-between  w-full"
                 >
-                    <p className=" text-center md:text-lg mt-2 md:mt-0">
+                    <p className=" text-center md:text-base text-sm mt-2 md:mt-0">
                         {blogTitle}, &copy; {getYear}
                     </p>
 
@@ -72,7 +72,7 @@ const Footer = () => {
                                                         ><stop offset="0" stopColor="#4168c9"></stop><stop
                                                             offset=".999"
                                                             stopColor="#4168c9"
-                                                            stop-opacity="0"></stop></radialGradient><path
+                                                            stopOpacity="0"></stop></radialGradient><path
                                                                 fill="url(#yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2)"
                                                                 d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z"></path><path
                                                                     fill="#fff"

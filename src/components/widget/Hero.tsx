@@ -10,7 +10,7 @@ const Hero = () => {
     `
 
     return (
-        <header className='h-[60vh] flex justify-center items-center bg-img'>
+        <header className='h-[40vh] md:h-[60vh] flex justify-center items-center bg-img'>
             <Container className='py-3 flex justify-center'>
                 <div className='w-[521px] text-center'>
                     <h1 className='text-3xl lg:text-5xl font-bold text-primary'>{blogTitle}</h1>
