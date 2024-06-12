@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Container from "../../components/widget/Container";
-import BlogTemplates from "@/components/widget/BlogTemplates";
+import BlogTemplates from "@/components/widget/BlogTemplates.astro";
 import {
     Card,
     CardContent,
@@ -64,7 +64,7 @@ const shortDescription = `Learn about cryptocurrency, NFTs, and blockchain, part
 
     <div>
         <div class="flex flex-wrap gap-4 items-center justify-center">
-            {uniqueTags.map((item) => <a href={`/tags/${tag}`}>{item}</a>)}
+            {uniqueTags?.map((item) => <a href={`/tags/${tag}`}>{item}</a>)}
         </div>
 
         <!-- <p>All post with tag - {tag}</p> -->
@@ -75,7 +75,13 @@ const shortDescription = `Learn about cryptocurrency, NFTs, and blockchain, part
                 {
                     posts.map((post) => (
                         <div>
-                            <BlogTemplates />
+                            <BlogTemplates
+                                url={post.url}
+                                title={post.frontmatter.title}
+                                img={post.frontmatter.image?.url}
+                                tags={post.frontmatter.tags}
+                                post={post}
+                            />
                             {/* <a href={post.url}>{post.frontmatter.title}</a> */}
                         </div>
                     ))
@@ -85,17 +91,20 @@ const shortDescription = `Learn about cryptocurrency, NFTs, and blockchain, part
             <div class="col-span-2">
                 <Card className="">
                     <CardHeader>
-                        <CardTitle>All Tags</CardTitle>                        
+                        <CardTitle>All Tags</CardTitle>
                     </CardHeader>
                     <CardContent>
                         {
                             uniqueTags.map((item) => (
-                                <a class="block space-y-4 hover:underline w-fit transition-all ease-linear hover:underline-offset-4" href={`/tags/${tag}`}>
+                                <a
+                                    class="block space-y-4 hover:underline w-fit transition-all ease-linear hover:underline-offset-4"
+                                    href={`/tags/${tag}`}
+                                >
                                     {item}
                                 </a>
                             ))
                         }
-                    </CardContent>                   
+                    </CardContent>
                 </Card>
             </div>
         </div>

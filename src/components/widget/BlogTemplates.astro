@@ -1,0 +1,57 @@
+---
+const { title, url, img, post, tags } = Astro.props;
+import { Button } from "@/components/ui/button";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+
+const postSnippet: string = post.rawContent();
+---
+
+<section>
+    <Card className="space-y-2">
+        <a href={url}>
+            <img src="/blog-post-1.png" class="w-full" alt="blog post img" />
+        </a>
+        <div>
+            <CardHeader>
+                <CardDescription>
+                    <div class="space-y-2">
+                        <!-- <p>{post.frontmatter.tags}{" "}</p> -->
+                        <div class="flex flex-wrap space-x-2">
+                            {tags.map((tag: any) => (
+                                <Badge className="text-xs w-fit block">{tag}</Badge>
+                            ))}
+                        </div>
+                        
+                        <span class="text-xs block opacity-80">
+                            5 min read
+                        </span>
+                    </div>
+                </CardDescription>
+                <CardTitle className="mt-2 text-2xl">{title}</CardTitle>
+            </CardHeader>
+
+            <CardContent>
+                {postSnippet.slice(0, 100)} . . .
+            </CardContent>
+
+            <CardFooter>
+                <a href={url}>
+                    <Button
+                        variant="outline"
+                        className="space-x-2 flex items-center"
+                    >
+                        <span>Read more</span>
+                    </Button>
+                </a>
+            </CardFooter>
+        </div>
+    </Card>
+</section>

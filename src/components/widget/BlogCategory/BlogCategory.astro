@@ -1,7 +1,48 @@
 ---
-import BlogCategoryHomePage from "./BlogCategory.tsx"
+import BlogTemplates from "../BlogTemplates.astro";
+import Container from "../Container";
+
+const allPosts = await Astro.glob("../../../pages/posts/*.md");
+
+const tags = [
+    ...new Set(allPosts.map((post) => post?.frontmatter?.tags).flat()),
+];
 ---
 
 <section>
-    <BlogCategoryHomePage client:load />
+    <Container>
+        <div class="my-6">
+            <!-- {allPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)} -->
+            <div class="flex flex-wrap gap-4 items-center justify-center">
+                {
+                    tags?.map((tag) => (
+                        <div>
+                            <a
+                                class="w-full no-underline hover:underline text-muted-foreground underline-offset-8 hover:text-white block bg-dark text-tertiary py-2 px-2 text-sm text-center"
+                                href={`/tags/${tag}`}
+                            >
+                                {tag}
+                            </a>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <div
+                class="grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-x-4 gap-x-0 sm:gap-y-10 gap-y-10"
+            >
+                {
+                    allPosts.map((post) => (
+                        <BlogTemplates
+                            url={post.url}
+                            title={post.frontmatter.title}
+                            img={post.frontmatter.image?.url}
+                            tags={post.frontmatter.tags}
+                            post={post}
+                        />
+                    ))
+                }
+            </div>
+        </div>
+    </Container>
 </section>
