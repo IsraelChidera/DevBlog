@@ -37,6 +37,12 @@ const uniqueTags = [
     ...new Set(posts.map((post) => post.frontmatter.tags).flat()),
 ];
 
+const allPosts = await Astro.glob("../posts/*.md");
+
+const tags = [
+    ...new Set(allPosts.map((post) => post?.frontmatter?.tags).flat()),
+];
+
 const blogTitle = "John Doe's";
 const shortDescription = `Learn about cryptocurrency, NFTs, and blockchain, partnership announcements, user stories, and more.`;
 ---
@@ -62,15 +68,11 @@ const shortDescription = `Learn about cryptocurrency, NFTs, and blockchain, part
         </div>
     </Container>
 
-    <div>
-        <div class="flex flex-wrap gap-4 items-center justify-center">
-            {uniqueTags?.map((item) => <a href={`/tags/${tag}`}>{item}</a>)}
-        </div>
+    <div>     
 
-        <!-- <p>All post with tag - {tag}</p> -->
-        <div class="grid grid-cols-6 gap-x-2 mt-20 md:px-10 px-3">
+        <div class="sm:grid grid-cols-6 gap-x-2 mt-20 md:px-10 px-3">
             <div
-                class="col-span-4 grid sm:grid-cols-2 lg:grid-cols-2 sm:gap-x-4 gap-x-0 sm:gap-y-10 gap-y-10"
+                class="col-span-4 grid sm:grid-cols-1 lg:grid-cols-2 sm:gap-x-4 gap-x-0 sm:gap-y-10 gap-y-10"
             >
                 {
                     posts.map((post) => (
@@ -79,31 +81,32 @@ const shortDescription = `Learn about cryptocurrency, NFTs, and blockchain, part
                                 url={post.url}
                                 title={post.frontmatter.title}
                                 img={post.frontmatter.image?.url}
-                                tags={post.frontmatter.tags}
+                                tags={tags}
                                 post={post}
                             />
-                            {/* <a href={post.url}>{post.frontmatter.title}</a> */}
                         </div>
                     ))
                 }
             </div>
 
-            <div class="col-span-2">
+            <div class="sm:mt-0 mt-10  col-span-2">
                 <Card className="">
                     <CardHeader>
                         <CardTitle>All Tags</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        {
-                            uniqueTags.map((item) => (
-                                <a
-                                    class="block space-y-4 hover:underline w-fit transition-all ease-linear hover:underline-offset-4"
-                                    href={`/tags/${tag}`}
-                                >
-                                    {item}
-                                </a>
-                            ))
-                        }
+                        <div class="flex flex-wrap gap-2">
+                            {
+                                tags.map((item: any) => (
+                                    <a
+                                        class="  w-fit transition-all ease-linear"
+                                        href={`/tags/${tag}`}
+                                    >
+                                        <Badge className="bg-[#039be5]">{item}</Badge>
+                                    </a>
+                                ))
+                            }
+                        </div>
                     </CardContent>
                 </Card>
             </div>

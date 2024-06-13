@@ -24,7 +24,7 @@ const postSnippet: string = post.rawContent();
                 <CardDescription>
                     <div class="space-y-2">
                         <!-- <p>{post.frontmatter.tags}{" "}</p> -->
-                        <div class="flex flex-wrap space-x-2">
+                        <div class="flex flex-wrap gap-2">
                             {tags.map((tag: any) => (
                                 <Badge className="text-xs w-fit block">{tag}</Badge>
                             ))}
