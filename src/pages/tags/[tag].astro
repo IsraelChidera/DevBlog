@@ -20,11 +20,9 @@ export async function getStaticPaths() {
     ];
 
     return uniqueTags.map((tag) => {
-        const filteredPosts = allPosts.filter((post) =>
-            post.frontmatter.tags.includes(tag),
-        );
+        const filteredPosts = allPosts.filter((post) => post.frontmatter?.tags?.includes(tag));
         return {
-            params: { tag },
+            params: { tag: String(tag) },  // Ensure tag is a string
             props: { posts: filteredPosts },
         };
     });
@@ -79,9 +77,9 @@ const shortDescription = `Learn about cryptocurrency, NFTs, and blockchain, part
                         <div>
                             <BlogTemplates
                                 url={post.url}
-                                title={post.frontmatter.title}
-                                img={post.frontmatter.image?.url}
-                                tags={tags}
+                                title={post?.frontmatter?.title}
+                                img={post?.frontmatter?.image?.url}
+                                tags={post?.frontmatter?.tags}
                                 post={post}
                             />
                         </div>
