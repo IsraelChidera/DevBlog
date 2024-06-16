@@ -5,9 +5,7 @@ import Container from '../Container';
 const Navbar = () => {
 
   const logo: string = import.meta.env.BLOG_LOGO;
-  const title: string = import.meta.env.BLOG_TITLE;
-
-  console.log("title", title);
+  
   console.log("logo", logo);
 
   return (

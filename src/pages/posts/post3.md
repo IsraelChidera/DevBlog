@@ -5,7 +5,7 @@ pubDate: 2022-07-01
 description: 'This is the first post about gaming'
 author: 'John Doe'
 image:
-    url: 'https://docs.astro.build/assets/full-logo-light.png'
+    url: '/blog-post-1.png'
     alt: 'The full Astro logo.'
 tags: ["tech", "blogging", "games"]
 ---

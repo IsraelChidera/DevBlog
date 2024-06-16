@@ -15,7 +15,7 @@ const postSnippet: string = post.rawContent();
 ---
 
 <section>
-    <Card className="space-y-2">
+    <Card className="space-y-2 flex flex-col justify-between h-full">
         <a href={url}>
             <img src="/blog-post-1.png" class="w-full" alt="blog post img" />
         </a>
@@ -25,7 +25,7 @@ const postSnippet: string = post.rawContent();
                     <div class="space-y-2">
                         <!-- <p>{post.frontmatter.tags}{" "}</p> -->
                         <div class="flex flex-wrap gap-2">
-                            {tags.map((tag: any) => (
+                            {tags?.map((tag: any) => (
                                 <Badge className="text-xs w-fit block">{tag}</Badge>
                             ))}
                         </div>                                                

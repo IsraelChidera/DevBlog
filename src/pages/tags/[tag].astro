@@ -4,9 +4,7 @@ import Container from "../../components/widget/Container";
 import BlogTemplates from "@/components/widget/BlogTemplates.astro";
 import {
     Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
+    CardContent, 
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
@@ -20,9 +18,11 @@ export async function getStaticPaths() {
     ];
 
     return uniqueTags.map((tag) => {
-        const filteredPosts = allPosts.filter((post) => post.frontmatter?.tags?.includes(tag));
+        const filteredPosts = allPosts.filter((post) =>
+            post.frontmatter?.tags?.includes(tag),
+        );
         return {
-            params: { tag: String(tag) },  // Ensure tag is a string
+            params: { tag: String(tag) }, // Ensure tag is a string
             props: { posts: filteredPosts },
         };
     });
@@ -31,10 +31,6 @@ export async function getStaticPaths() {
 const { tag } = Astro.params;
 const { posts } = Astro.props;
 
-const uniqueTags = [
-    ...new Set(posts.map((post) => post.frontmatter.tags).flat()),
-];
-
 const allPosts = await Astro.glob("../posts/*.md");
 
 const tags = [
@@ -42,7 +38,7 @@ const tags = [
 ];
 
 const blogTitle = "John Doe's";
-const shortDescription = `Learn about cryptocurrency, NFTs, and blockchain, partnership announcements, user stories, and more.`;
+const shortDescription = `{ Learn about cryptocurrency, NFTs, and blockchain, partnership announcements, user stories, and more }`;
 ---
 
 <BaseLayout title={tag}>
@@ -66,14 +62,13 @@ const shortDescription = `Learn about cryptocurrency, NFTs, and blockchain, part
         </div>
     </Container>
 
-    <div>     
-
+    <div>
         <div class="sm:grid grid-cols-6 gap-x-2 mt-20 md:px-10 px-3">
             <div
                 class="col-span-4 grid sm:grid-cols-1 lg:grid-cols-2 sm:gap-x-4 gap-x-0 sm:gap-y-10 gap-y-10"
             >
                 {
-                    posts.map((post) => (
+                    posts.map((post:any) => (
                         <div>
                             <BlogTemplates
                                 url={post.url}
@@ -87,7 +82,7 @@ const shortDescription = `Learn about cryptocurrency, NFTs, and blockchain, part
                 }
             </div>
 
-            <div class="sm:mt-0 mt-10  col-span-2">
+            <div class="sm:mt-0 mt-10 col-span-2">
                 <Card className="">
                     <CardHeader>
                         <CardTitle>All Tags</CardTitle>
@@ -98,9 +93,13 @@ const shortDescription = `Learn about cryptocurrency, NFTs, and blockchain, part
                                 tags.map((item: any) => (
                                     <a
                                         class="  w-fit transition-all ease-linear"
-                                        href={`/tags/${tag}`}
+                                        href={`/tags/${item}`}
                                     >
-                                        <Badge className="bg-[#039be5]">{item}</Badge>
+                                        {item && (
+                                            <Badge className="bg-[#039be5]">
+                                                {item}
+                                            </Badge>
+                                        )}                                      
                                     </a>
                                 ))
                             }

@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import Container from "../components/widget/Container";
 
 const { frontmatter } = Astro.props;
 ---
@@ -25,7 +24,7 @@ const { frontmatter } = Astro.props;
                 </div>
 
                 <div class="mb-2">
-                    <p>{frontmatter.pubDate}</p>
+                    <p>{frontmatter.pubDate.slice(0, 10)}</p>
                     <h1
                         class="text-primary font-semibold text-[32px] md:text-5xl"
                     >

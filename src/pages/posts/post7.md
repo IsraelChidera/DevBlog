@@ -1,13 +1,13 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: 'Adam's Post'
+title: 'Youtube Post'
 pubDate: 2022-07-01
 description: 'This is the first post about gaming'
 author: 'John Doe'
 image:
     url: 'https://docs.astro.build/assets/full-logo-light.png'
     alt: 'The full Astro logo.'
-tags: ["tech", "blogging", "games"]
+tags: ["tech", "video"]
 ---
 
 

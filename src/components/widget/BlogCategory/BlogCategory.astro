@@ -11,14 +11,13 @@ const tags = [
 
 <section>
     <Container>
-        <div class="mb-20">
-            <!-- {allPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)} -->
+        <div class="mb-20">            
             <div class="mb-6 flex flex-wrap gap-4 items-center justify-center">
                 {
                     tags?.map((tag) => (
                         <div>
                             <a
-                                class="w-full no-underline hover:underline text-muted-foreground underline-offset-8 hover:text-white block bg-dark text-tertiary py-2 px-2 text-sm text-center"
+                                class="w-full no-underline hover:underline text-muted-foreground underline-offset-8 hover:text-opacity-80 opacity-100 block bg-dark text-tertiary py-2 px-2 text-sm text-center"
                                 href={`/tags/${tag}`}
                             >
                                 {tag}
@@ -37,7 +36,7 @@ const tags = [
                             url={post.url}
                             title={post.frontmatter.title}
                             img={post.frontmatter.image?.url}
-                            tags={tags}
+                            tags={post.frontmatter.tags}
                             post={post}
                         />
                     ))
