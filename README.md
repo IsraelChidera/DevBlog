@@ -23,7 +23,62 @@ DevBlog is an open-source blog platform for developers, built with Astro, Shadcn
 ### Installation
 
 1. **Fork or Clone the Repository**
-
    ```bash
    git clone https://github.com/yourusername/devblog.git
    cd devblog
+   ```
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+3. **Start the Development Server**
+   ```bash
+   npm start
+   ```
+
+## Usage
+### Creating a New Post
+To create a new post, add a Markdown file in the posts directory. Here’s a sample frontmatter for your Markdown file:
+   ```markdown
+   ---
+   layout: ../../layouts/MarkdownPostLayout.astro
+   title: 'Your Post Title'
+   pubDate: 2023-01-01
+   description: 'A brief description of your post'
+   author: 'Your Name'
+   image:
+       url: '/path-to-your-image.png'
+       alt: 'Description of your image'
+   tags: ["tag1", "tag2"]
+   ---
+   ```
+## Customizing the Layout and Styles
+To customize the layout and styles, edit the files in the src directory. Tailwind CSS makes it easy to adjust styles and ensure a consistent design.
+
+## Contributing to DevBlog
+Thank you for considering contributing to DevBlog! Here are a few guidelines to help you get started:
+
+### How to Contribute
+- Fork the Repository
+- Create a New Branch
+  ```bash
+  git checkout -b feature-branch
+  ```
+- Make Your Changes
+- Commit Your Changes
+  ```bash
+   git commit -am 'Add new feature'
+  ```
+- Push to the Branch
+  ```bash
+   git push origin feature-branch
+  ```
+- Create a New Pull Request
+
+## Preview
+![DevBlog Preview](/dev-blog-gif.gif) 
+
+## License
+
+
+## Don't forget to leave a star if you find this project useful! ⭐️
