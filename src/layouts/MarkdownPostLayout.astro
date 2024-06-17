@@ -5,9 +5,9 @@ const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout title={frontmatter.title}>
-    <div class="flex justify-center items-center">
-        <div class="py-10 lg:px-0 px-3 flex justify-center items-center">
-            <div>
+    <div class="">
+        <div class="lg:mx-[16.5rem] md:mx-[5rem] mx-4 lg:mt-[5.5rem] text-gray-100">
+            <div class="mx-6"></div>
                 <div class="flex text-primary justify-end mb-6">
                     <a href="/blog" class="flex items-center space-x-2">
                         <svg
@@ -37,6 +37,8 @@ const { frontmatter } = Astro.props;
                         src={frontmatter.image.url}                        
                         alt={frontmatter.image.alt}
                         class="sm:w-full"
+                        width={720}
+                        height={360}
                     />
                 </div>
 
