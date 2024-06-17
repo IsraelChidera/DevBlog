@@ -4,15 +4,12 @@ import Container from '../Container';
 
 const Navbar = () => {
 
-  const logo: string = import.meta.env.BLOG_LOGO;
-  
-  console.log("logo", logo);
-
   return (
     <nav className='h-[10vh] py-3 '>
       <Container className="flex justify-between items-center">
         <a href="/">
-          <img src={logo} alt="blog logo" />
+          {/* Text or image can go here */}
+          <h1 className="text-2xl italic font-bold text-primary">JD</h1>
         </a>
 
         <div className="flex items-center space-x-2">
