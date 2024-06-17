@@ -1,6 +1,6 @@
 # DevBlog
 
-![DevBlog Preview](https://github.com/IsraelChidera/DevBlog/dev-blog-gif.gif) 
+![DevBlog Preview](/dev-blog-gif.gif) 
 
 DevBlog is an open-source blog platform for developers, built with Astro, Shadcn, Tailwind CSS, and React.js. Clone or fork this repository to create your own personal blog.
 
