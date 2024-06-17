@@ -96,6 +96,6 @@ Thank you for considering contributing to DevBlog! Here are a few guidelines to 
 ![DevBlog Preview](/dev-blog-gif.gif) 
 
 ## License
-
+This project is licensed under the MIT License
 
 ## Don't forget to leave a star if you find this project useful! ⭐️
