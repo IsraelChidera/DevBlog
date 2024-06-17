@@ -52,6 +52,23 @@ To create a new post, add a Markdown file in the posts directory. Here’s a sam
    tags: ["tag1", "tag2"]
    ---
    ```
+
+## Improving SEO with Meta Tags
+To improve the SEO of your blog, you can add meta tags to your HTML head. In Astro, you can do this by editing the layouts/BaseLayout.astro file.
+
+- Open the MarkdownPostLayout.astro file.
+- Add your meta tags within the <head> section. Here’s an example:
+  ```astro
+   <head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+  ```
+
 ## Customizing the Layout and Styles
 To customize the layout and styles, edit the files in the src directory. Tailwind CSS makes it easy to adjust styles and ensure a consistent design.
 
